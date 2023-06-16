@@ -1,0 +1,70 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.home{
+    &__hero{
+        background: url('../../assets/images/hero.jpg');
+        height: 25vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:center;
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        @media screen and (min-width: 768px) {
+            height:65vh;
+          }
+        @media screen and (min-width: 1280px) {
+            height:70vh;
+          }  
+    }
+    &__programs{
+        padding: 1rem;
+        @include tablet{
+            padding: 2rem;
+        }
+    }
+}
+
+.hero{
+    
+    &__content{
+        padding: 0 1rem;
+        @media screen and (min-width: 768px) {
+            padding: 0 2rem;
+          }  
+        @media screen and (min-width: 1280px) {
+            padding: 0 8.5rem;
+          }
+    }
+    &__overlay{
+        position:absolute;
+        height:100%;
+        width:100%;
+        background-color:black;
+        opacity: 50%;
+        top: 0;
+    }
+    &__heading{
+        color: white;
+        font-size: 1.5625rem;
+        font-weight: 600;
+        z-index: 10;
+        position:relative;
+        display:flex;
+        justify-content: center;
+        @media screen and (min-width: 768px) {
+            font-size: 64px;
+          }
+    }
+    &__text{
+        display:flex;
+        justify-content: center;
+        color:white;
+        z-index: 10;
+        position: relative;
+        font-size: 1rem;
+    }
+}

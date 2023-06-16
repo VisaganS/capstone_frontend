@@ -1,0 +1,63 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.header{
+    display:flex;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    @include tablet{
+        padding: 2rem;
+    }
+    &__logo{
+        font-family: "Marker";
+        font-size: 1.5rem;
+        color:white;
+        text-decoration: none;
+        margin: 0px;
+        @include tablet{
+            font-size: 2rem;
+        }
+    }
+}
+
+.navbar{
+    &__dropdown{
+        color:white;
+        font-size: 1.2rem;
+        @include tablet{
+            display:none;
+        }
+    }
+    &__list{
+        display:none;
+        @include tablet{
+            display:flex;
+            margin: 0;
+            align-items: center;
+        }
+    }
+    &__item{
+        padding: 0 0.5rem;
+        list-style: none;
+        @include tablet{
+            padding: 0 1rem;
+        }
+
+    }
+    &__navlink{
+        text-decoration: none;
+        color:$gray;
+        width:100%;
+        &:hover{
+            color:orange;
+        }
+    }
+    &__active-link{
+        text-decoration: none;
+        color:white;
+        font-weight:700;
+    }
+}
