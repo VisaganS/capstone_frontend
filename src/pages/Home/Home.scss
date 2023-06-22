@@ -29,7 +29,6 @@
 }
 
 .hero{
-    
     &__content{
         padding: 0 1rem;
         @media screen and (min-width: 768px) {
@@ -66,5 +65,109 @@
         z-index: 10;
         position: relative;
         font-size: 1rem;
+        @include tablet{
+            font-size: 2rem;
+        }
+    }
+}
+
+.programs{
+    &__container{
+        display:flex;
+        flex-direction: column;
+        @include tablet{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    &__item{
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:center;
+        height: 10rem;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        @include tablet{
+            width: 32%;
+            height: 16rem;
+
+        }
+        &--calisthenics{
+            background-image: url(../../assets/images/calisthenics-background.jpg);
+        }
+        &--weights{
+            background-image: url(../../assets/images/free-weights-background.jpg);
+        }
+        &--machines{
+            background-image: url(../../assets/images/deadlift-background.jpg);
+        }
+    }
+    &__heading{
+        text-align: center;
+        font-weight: 600;
+        font-size: 2.5rem;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    &__button{
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        background-color: black;
+        color: white;
+        display: flex;
+        margin: 1rem auto;
+        border:none;
+        text-decoration: none;
+    }
+}
+.programs-item{
+    &__overlay{
+        position:absolute;
+        height:100%;
+        width:100%;
+        background-color:black;
+        opacity: 25%;
+        border-radius: 0.5rem;
+        top: 0;
+    }
+    &__content{
+        position: absolute;
+        z-index: 10;
+        padding: 1rem;
+        width: 100%;
+        bottom: 0;
+        @include tablet{
+            height: fit-content;
+        }
+    }
+    &__type{
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+    &__heading{
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: white;
+    }
+    &__rating{
+        display:flex;
+        color: white;
+        @include tablet{
+            justify-content: space-between;
+        }
+    }
+    &__dash{
+        padding: 0 0.5rem;
+        margin-bottom: 0;
+        @include tablet{
+            display:none;
+        }
+    }
+    &__likes{
+        margin-bottom: 0;
+    }
+    &__comments{
+        margin-bottom: 0;
     }
 }
