@@ -1,0 +1,19 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.error{
+    padding: 1rem;
+    @include tablet{
+        padding: 2rem;
+    }
+    &__image{
+        width: 20rem;
+        display: flex;
+        margin: 0 auto;
+    }
+    &__text{
+        text-align:center;
+        padding: 1rem 0;
+    }
+}
