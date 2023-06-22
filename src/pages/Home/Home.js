@@ -36,7 +36,7 @@ const Home = () => {
         <div className="home__programs">
             <h2 className="programs__heading">Programs</h2>
             <div className="programs__container">
-                <div className="programs__item programs__item--calisthenics">
+                <div className="programs__item" style={{ backgroundImage: `url(${workout1.image})` }}>
                     <div className="programs-item__overlay"></div>
                     <div className="programs-item__content">
                         <p className="programs-item__type">{workout1.type}</p>
@@ -48,7 +48,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="programs__item programs__item--weights">
+                <div className="programs__item" style={{ backgroundImage: `url(${workout2.image})` }}>
                     <div className="programs-item__overlay"></div>
                     <div className="programs-item__content">
                         <p className="programs-item__type">{workout2.type}</p>
@@ -60,7 +60,7 @@ const Home = () => {
                         </div>
                     </div>  
                 </div>
-                <div className="programs__item programs__item--machines">
+                <div className="programs__item" style={{ backgroundImage: `url(${workout3.image})` }}>
                     <div className="programs-item__overlay"></div>
                     <div className="programs-item__content">
                         <p className="programs-item__type">{workout3.type}</p>
@@ -73,7 +73,7 @@ const Home = () => {
                     </div>      
                 </div>
             </div>
-            <Link to="/workouts" className="programs__link"><button className="programs__button">View All</button></Link>
+            <Link to="/programs" className="programs__link"><button className="programs__button">View All</button></Link>
         </div>
     </div>
     <Footer/>
