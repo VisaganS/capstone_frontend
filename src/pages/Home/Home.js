@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from "../../components/Header/Header";
-import heroImg from "../../assets/images/hero.jpg"
+import Footer from '../../components/Footer/Footer';
 import './Home.scss';
 
 const Home = () => {
@@ -73,9 +73,10 @@ const Home = () => {
                     </div>      
                 </div>
             </div>
-            <Link to="/workouts"><button className="programs__button">View All</button></Link>
+            <Link to="/workouts" className="programs__link"><button className="programs__button">View All</button></Link>
         </div>
     </div>
+    <Footer/>
     </>
 }
 

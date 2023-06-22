@@ -1,0 +1,47 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.footer{
+    padding: 1rem;
+    background-color: black;
+    @include tablet{
+        padding: 2rem;
+    }
+    &__section-list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include tablet{
+        flex-wrap: nowrap;
+        }
+    }
+    &__section{
+        width: 45%;
+        padding: 1rem 0;
+    }
+    &__heading{
+        color: white;
+        margin-bottom: 1rem;
+    }
+    &__item{
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    &__link{
+        text-decoration: none;
+        color: white;
+        &:hover{
+            color: orange;
+        }
+    }
+    &__icon{
+        margin-right: 0.5rem;
+    }
+    &__copyright{
+        color: white;
+        border-top: 1px white solid;
+        margin: 2rem 0;
+        padding: 2rem 0;
+    }
+}
