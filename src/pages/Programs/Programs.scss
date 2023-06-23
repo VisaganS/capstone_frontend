@@ -30,6 +30,21 @@
             flex-wrap: wrap;
         }
     }
+    &__add{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        padding: 1rem 0;
+        background-color: black;
+        border-radius: 8px;
+        text-decoration: none;
+        @include tablet{
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+    }
 }
 
 .programs-workout{
@@ -85,5 +100,14 @@
         display: flex;
         justify-content: space-between;
         padding: 0.5rem 0;
+    }
+}
+
+.add{
+    &__text{
+        margin-left: 1rem;
+        margin-bottom: 0;
+        text-decoration: none;
+        color:white;
     }
 }

@@ -37,7 +37,7 @@ const DeleteModal = ({ bin, id, itemToDelete, modalState, setModalState }) => {
                             <h2 className="delete-modal__heading">Delete {itemToDelete}?</h2>
                             <p className="delete-modal__paragraph">
                                 Please confirm that you'd like to delete <strong>{itemToDelete}</strong> from the
-                                list of {bin+"s"}. You won't be able to undo this action.
+                                list of {bin}. You won't be able to undo this action.
                             </p>
                             <p className="delete-modal__confirmation">{isDeleted}</p>
                         </div>
