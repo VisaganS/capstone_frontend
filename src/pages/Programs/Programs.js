@@ -43,15 +43,17 @@ const Programs = ( {modalState, setModalState }) => {
             {workoutList.map((workout) =>{
                 return (
                     <div className="programs__workout" key={workout.id} style={{ backgroundImage: `url(${workout.image})` }}>
-                        <div className="programs-workout__overlay"></div>
+                        <Link to={`/programs/${workout.id}`}><div className="programs-workout__overlay"></div></Link>
                         <div className="programs-workout__content">
-                            <p className="programs-workout__type">{workout.type}</p>
-                            <h2 className="programs-workout__heading">{workout.name}</h2>
-                            <div className="programs-workout__rating">
-                                <p className="programs-workout__likes">{workout.likes} likes</p>
-                                <p className="programs-workout__dash">|</p>
-                                <p className="programs-workout__comments">{workout.comments} comments</p>
-                            </div>
+                            <Link to={`/programs/${workout.id}`} className="programs__link">
+                                <p className="programs-workout__type">{workout.type}</p>
+                                <h2 className="programs-workout__heading">{workout.name}</h2>
+                                <div className="programs-workout__rating">
+                                    <p className="programs-workout__likes">{workout.likes} likes</p>
+                                    <p className="programs-workout__dash">|</p>
+                                    <p className="programs-workout__comments">{workout.comments} comments</p>
+                                </div>
+                            </Link>
                             <div className="programs-workout__buttons">
                                 <div className="programs-workout__edit">
                                     <Link to={`/programs/edit/${workout.id}`}>

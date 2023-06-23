@@ -1,0 +1,61 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.programDetails{
+    background-color: #ffffff;
+    &__heading{
+        height: 25vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__overlay{
+        position:absolute;
+        height:100%;
+        width:100%;
+        background-color:black;
+        opacity: 50%;
+        top: 0;
+    }
+    &__content{
+        position: absolute;
+        z-index: 10;
+        padding: 1rem;
+        width: 100%;
+        bottom: 0;
+        @include tablet{
+        }
+    }
+    &__type{
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+    &__heading{
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: white;
+    }
+    &__bottom{
+        display:flex;
+        justify-content: space-between;
+    }
+    &__rating{
+        display:flex;
+        color: white;
+    }
+    &__dash{
+        padding: 0 0.5rem;
+        margin-bottom: 0;
+    }
+    &__likes{
+        margin-bottom: 0;
+    }
+    &__comments{
+        margin-bottom: 0;
+    }
+}

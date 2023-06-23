@@ -30,6 +30,9 @@
             flex-wrap: wrap;
         }
     }
+    &__link{
+        text-decoration:none;
+    }
     &__add{
         display: flex;
         justify-content: center;
