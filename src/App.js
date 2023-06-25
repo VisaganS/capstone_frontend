@@ -4,6 +4,8 @@ import Home from "./pages/Home/Home";
 import Programs from './pages/Programs/Programs';
 import ProgramDetails from "./pages/ProgramDetails/ProgramDetails";
 import EditPrograms from './pages/EditPrograms/EditPrograms';
+import ExerciseDetails from "./pages/ExerciseDetails/ExerciseDetails";
+import EditExercise from "./pages/EditExercise/EditExercise";
 import Error from "./pages/Error/Error";
 import './App.scss';
 
@@ -18,8 +20,8 @@ function App() {
     <Route path='/programs' element={<Programs modalState={isOpen} setModalState={setIsOpen}/>}/>
     <Route path='/programs/:id' element={<ProgramDetails modalState={isOpen} setModalState={setIsOpen}/>}/>
     <Route path='/programs/edit/:id' element={<EditPrograms />} />
-    {/* <Route path='/exercises/:id' element={<ExerciseDetails />}/>
-    <Route path='/exercises/:id' element={<EditExcercises />}/> */}
+    <Route path='/exercises/:id' element={<ExerciseDetails />}/>
+    <Route path='/exercises/:id' element={<EditExercise />}/>
     </Routes>
     </BrowserRouter>   
   

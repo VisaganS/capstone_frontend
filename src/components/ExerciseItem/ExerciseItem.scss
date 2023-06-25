@@ -11,6 +11,7 @@
     border: 1px solid black;
     background-color:whitesmoke;
     align-items: center;
+    
     @include tablet{
         flex-direction: row;
         padding: 1rem 2rem;
@@ -20,6 +21,7 @@
         border-bottom: 1px solid black;
         justify-content: space-between;
         background-color: white;
+        height: 5rem;
     }
     &__section{
         text-align: center;
