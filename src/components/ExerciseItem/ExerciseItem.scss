@@ -1,0 +1,80 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.exercise-item{
+    background-color: rgba(0, 0, 0, 0.5);
+    display:flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1.25rem;
+    border: 1px solid black;
+    background-color:whitesmoke;
+    align-items: center;
+    @include tablet{
+        flex-direction: row;
+        padding: 1rem 2rem;
+        margin: 0;
+        border:none;
+        border-radius: 0;
+        border-bottom: 1px solid black;
+        justify-content: space-between;
+        background-color: white;
+    }
+    &__section{
+        text-align: center;
+        width: 100%;
+        text-transform: capitalize;
+        @include tablet{
+            text-align: initial;
+        }
+        &--name{
+            @include tablet{
+                width: 10rem;
+            }
+        }
+        &--muscle{
+            @include tablet{
+                 width: 5rem;
+            }
+        }
+        &--equipment{
+            @include tablet{
+                 width: 7rem;
+            }
+        }
+        &--difficulty{
+            @include tablet{
+               width: 8rem; 
+            }
+        }
+    }
+    &__header{
+        font-weight:600;
+        @include tablet{
+            display:none;
+        }
+    }
+    &__content{
+        border-bottom: 1px solid lightgrey;
+        @include tablet{
+            border:none;
+            margin: 0;
+        }
+    }
+    &__buttons{
+        display: flex;
+        justify-content: center;
+        padding: 0 2rem;
+        @include tablet{
+            padding: 0;
+            width: 10.5rem;
+        }
+    }
+    &__button{
+        background-color: white;
+        border: none;
+        margin: 0 1rem;
+    }
+    
+}

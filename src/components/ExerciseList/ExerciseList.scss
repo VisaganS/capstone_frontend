@@ -1,0 +1,49 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.exerciseList{
+    &__bar{
+       display:none;
+        @include tablet{
+            display:flex;
+            justify-content: space-between;
+            background-color: black;
+            padding: 1rem 2rem;
+        }
+    }
+}
+
+.bar{
+    &__heading{
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: orange;
+        &--name{
+            @include tablet{
+                width: 10rem;
+            }
+        }
+        &--muscle{
+            @include tablet{
+                 width: 5rem;
+            }
+        }
+        &--equipment{
+            @include tablet{
+                 width: 7rem;
+            }
+        }
+        &--difficulty{
+            @include tablet{
+               width: 8rem; 
+            }
+        }
+        &--options{
+            @include tablet{
+                width: 10.5rem;
+                text-align: center;
+            }
+        }
+    }
+}

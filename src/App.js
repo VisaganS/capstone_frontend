@@ -18,6 +18,8 @@ function App() {
     <Route path='/programs' element={<Programs modalState={isOpen} setModalState={setIsOpen}/>}/>
     <Route path='/programs/:id' element={<ProgramDetails modalState={isOpen} setModalState={setIsOpen}/>}/>
     <Route path='/programs/edit/:id' element={<EditPrograms />} />
+    {/* <Route path='/exercises/:id' element={<ExerciseDetails />}/>
+    <Route path='/exercises/:id' element={<EditExcercises />}/> */}
     </Routes>
     </BrowserRouter>   
   
