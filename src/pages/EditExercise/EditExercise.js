@@ -185,7 +185,7 @@ const EditExercise = () => {
                                 </label>
                                 <p className={difficultyIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
                                 <label className="form__label">
-                                    Difficulty
+                                    Instructions
                                     <input onChange={handleInstructionsChange} type="text" id="inputs__instructions" name="instructions" placeholder="Instructions" value={instructions} />
                                 </label>
                                 <p className={instructionsIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
