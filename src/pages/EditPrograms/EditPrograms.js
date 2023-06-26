@@ -120,26 +120,26 @@ const EditPrograms = () => {
                     <h1 className="editPrograms__title">Edit Program</h1>
                 </div>
                 <form className="editPrograms__form" onSubmit={handleSubmit}>
-                    <div className="form__details-container">
-                        <div className="form__details">
-                            <h2 className="form__heading">Program Details</h2>
-                            <div className="form__inputs">
-                                <label className="form__label">
+                    <div className="editPrograms-form__details-container">
+                        <div className="editPrograms-form__details">
+                            <h2 className="editPrograms-form__heading">Program Details</h2>
+                            <div className="editPrograms-form__inputs">
+                                <label className="editPrograms-form__label">
                                     Program Name
                                     <input onChange={handleNameChange} type="text" id="inputs__programName" name="programName" placeholder="Program Name" value={programName} />
                                 </label>
-                                <p className={programNameIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
-                                <label className="form__label">
+                                <p className={programNameIsError ? "editPrograms-form__showError" : "editPrograms-form__hideError"}><img src={errorIcon} className="editPrograms-form__errorImage" alt="error-icon" />This field is required</p>
+                                <label className="editPrograms-form__label">
                                     Program Type
                                     <input onChange={handleTypeChange} type="text" id="inputs__programType" name="programType" placeholder="Program Type" value={type} />
                                 </label>
-                                <p className={programTypeIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
+                                <p className={programTypeIsError ? "editPrograms-form__showError" : "editPrograms-form__hideError"}><img src={errorIcon} className="editPrograms-form__errorImage" alt="error-icon" />This field is required</p>
                             </div>
                         </div>
                     </div>
-                    <div className="form__button-container">
-                        <button className="form__button form__button--cancel" onClick={resetInputs}>Cancel</button>
-                        <button type="submit" className="form__button">Save</button>
+                    <div className="editPrograms-form__button-container">
+                        <button className="editPrograms-form__button editPrograms-form__button--cancel" onClick={resetInputs}>Cancel</button>
+                        <button type="submit" className="editPrograms-form__button">Save</button>
                     </div>
                 </form>      
             </div>

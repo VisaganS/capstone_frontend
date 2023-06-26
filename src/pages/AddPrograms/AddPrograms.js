@@ -96,35 +96,36 @@ const AddPrograms = () => {
     return (<>
         <Header/>
         <div className="addPrograms"> 
-            <div className="editPrograms__heading">
+            <div className="addPrograms__heading">
                 <Link to={`/programs`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" className="editPrograms__return" viewBox="0 0 16 16">
-                        <path fillRule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="addPrograms__return" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path>
                     </svg>
                 </Link>
-                <h1 className="editPrograms__title">Add Program</h1>
+                <h1 className="addPrograms__title">Add Program</h1>
             </div>
-            <form className="editPrograms__form" onSubmit={handleSubmit}>
-                <div className="form__details-container">
-                    <div className="form__details">
-                        <h2 className="form__heading">Program Details</h2>
-                        <div className="form__inputs">
-                        <label className="form__label">
+            <form className="addPrograms__form" onSubmit={handleSubmit}>
+                <div className="addPrograms-form__details-container">
+                    <div className="addPrograms-form__details">
+                        <h2 className="addPrograms-form__heading">Program Details</h2>
+                        <div className="addPrograms-form__inputs">
+                            <label className="addPrograms-form__label">
                                 Program Name
                                 <input onChange={handleNameChange} type="text" id="inputs__programName" name="programName" placeholder="Program Name" value={programName} />
                             </label>
-                            <p className={programNameIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
-                            <label className="form__label">
+                            <p className={programNameIsError ? "addPrograms-form__showError" : "addPrograms-form__hideError"}><img src={errorIcon} className="addPrograms-form__errorImage" alt="error-icon" />This field is required</p>
+                            <label className="addPrograms-form__label">
                                 Program Type
                                 <input onChange={handleTypeChange} type="text" id="inputs__programType" name="programType" placeholder="Program Type" value={type} />
                             </label>
-                            <p className={programTypeIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
+                            <p className={programTypeIsError ? "addPrograms-form__showError" : "addPrograms-form__hideError"}><img src={errorIcon} className="addPrograms-form__errorImage" alt="error-icon" />This field is required</p>
+                            {/* <input type="file" className="addPrograms-form__upload" name="file"></input> */}
                         </div>
                     </div>
                 </div>
-                <div className="form__button-container">
-                    <button className="form__button form__button--cancel" onClick={resetInputs}>Cancel</button>
-                    <button type="submit" className="form__button">Save</button>
+                <div className="addPrograms-form__button-container">
+                    <button className="addPrograms-form__button addPrograms-form__button--cancel" onClick={resetInputs}>Cancel</button>
+                    <button type="submit" className="addPrograms-form__button">Save</button>
                 </div>
             </form> 
         </div>

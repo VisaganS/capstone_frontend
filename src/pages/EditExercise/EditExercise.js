@@ -160,41 +160,41 @@ const EditExercise = () => {
                     <h1 className="editExercise__title">Edit Exercise</h1>
                 </div>
                 <form className="editExercise__form" onSubmit={handleSubmit}>
-                    <div className="form__details-container">
-                        <div className="form__details">
-                            <h2 className="form__heading">Program Details</h2>
-                            <div className="form__inputs">
-                                <label className="form__label">
+                    <div className="editExercise-form__details-container">
+                        <div className="editExercise-form__details">
+                            <h2 className="editExercise-form__heading">Program Details</h2>
+                            <div className="editExercise-form__inputs">
+                                <label className="editExercise-form__label">
                                     Exercise Name
                                     <input onChange={handleNameChange} type="text" id="inputs__exerciseName" name="exerciseName" placeholder="Exercise Name" value={exerciseName} />
                                 </label>
-                                <p className={nameIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
-                                <label className="form__label">
+                                <p className={nameIsError ? "editExercise-form__showError" : "editExercise-form__hideError"}><img src={errorIcon} className="editExercise-form__errorImage" alt="error-icon" />This field is required</p>
+                                <label className="editExercise-form__label">
                                     Muscle
                                     <input onChange={handleMuscleChange} type="text" id="inputs__muscle" name="muscle" placeholder="Muscle" value={muscle} />
                                 </label>
-                                <p className={muscleIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
-                                <label className="form__label">
+                                <p className={muscleIsError ? "editExercise-form__showError" : "editExercise-form__hideError"}><img src={errorIcon} className="editExercise-form__errorImage" alt="error-icon" />This field is required</p>
+                                <label className="editExercise-form__label">
                                     Equipment
                                     <input onChange={handleEquipmentChange} type="text" id="inputs__equipment" name="equipment" placeholder="Equipment" value={equipment} />
                                 </label>
-                                <p className={equipmentIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
-                                <label className="form__label">
+                                <p className={equipmentIsError ? "editExercise-form__showError" : "editExercise-form__hideError"}><img src={errorIcon} className="editExercise-form__errorImage" alt="error-icon" />This field is required</p>
+                                <label className="editExercise-form__label">
                                     Difficulty
                                     <input onChange={handleDifficultyChange} type="text" id="inputs__difficulty" name="difficulty" placeholder="Difficulty" value={difficulty} />
                                 </label>
-                                <p className={difficultyIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
-                                <label className="form__label">
+                                <p className={difficultyIsError ? "editExercise-form__showError" : "editExercise-form__hideError"}><img src={errorIcon} className="editExercise-form__errorImage" alt="error-icon" />This field is required</p>
+                                <label className="editExercise-form__label">
                                     Instructions
                                     <input onChange={handleInstructionsChange} type="text" id="inputs__instructions" name="instructions" placeholder="Instructions" value={instructions} />
                                 </label>
-                                <p className={instructionsIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
+                                <p className={instructionsIsError ? "editExercise-form__showError" : "editExercise-form__hideError"}><img src={errorIcon} className="editExercise-form__errorImage" alt="error-icon" />This field is required</p>
                             </div>
                         </div>
                     </div>
-                    <div className="form__button-container">
-                        <button className="form__button form__button--cancel" onClick={resetInputs}>Cancel</button>
-                        <button type="submit" className="form__button">Save</button>
+                    <div className="editExercise-form__button-container">
+                        <button className="editExercise-form__button editExercise-form__button--cancel" onClick={resetInputs}>Cancel</button>
+                        <button type="submit" className="editExercise-form__button">Save</button>
                     </div>
                 </form>      
             </div>
