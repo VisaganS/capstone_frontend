@@ -1,0 +1,173 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.addPrograms {
+    background: white;
+    border-radius: .25rem;
+    margin: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 .125rem 5px lightgrey;
+    @include tablet {
+        margin: 2rem;
+        margin-bottom: 2rem;
+    }
+    @include desktop {
+        margin: 3rem 6rem;
+    }
+    &__heading {
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+        border-bottom: 1px solid lightgrey;
+        @include tablet {
+            width: 100%;
+            padding: 1.5rem;
+            justify-content: left;
+        }
+    }
+    &__title {
+        font-size: 1.5rem;
+        padding-left: 0.5rem;
+        margin-bottom: 0;
+
+        @include tablet {
+            padding: 0 1rem;
+            font-size: 2rem;
+        }
+    }
+    &__return{
+        display: flex;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.form {
+    &__details-container {
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__details {
+        padding: 1rem;
+        border-bottom: 1px solid lightgrey;
+
+        @include tablet {
+            padding: 0 2rem;
+            margin: 2rem 0;
+            width: 50%;
+            border: none;
+        }
+
+        @include desktop {
+            margin-bottom: 1rem;
+        }
+
+        &--borderless {
+            border: none;
+
+            @include tablet {
+                border-left: 1px solid lightgrey;
+            }
+        }
+
+    }
+
+    &__heading {
+        font-size: 1.2rem;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__label {
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        font-size: 0.85rem;
+
+        @include tablet {
+            font-size: 0.9rem;
+        }
+    }
+
+    &__inputs {
+        @include tablet {
+            padding-top: 0.5rem;
+        }
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+
+        @include tablet {
+            justify-content: right;
+            padding: 1rem 2rem;
+            background-color: lightgrey;
+        }
+    }
+
+    &__button {
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 1.5rem;
+        padding: 0.5rem;
+        height: 2rem;
+        font-size: 0.8rem;
+
+        @include tablet {
+            padding: 0 1rem;
+            height: 2.5rem;
+            font-size: 0.9rem;
+            margin: 0 0.5rem;
+        }
+
+        &--cancel {
+            background-color: white;
+            color: gray;
+            border: 1px solid lightgrey;
+            width: 9rem;
+
+            @include tablet {
+                width: 5rem;
+            }
+        }
+    }
+
+    &__showError {
+        display: flex;
+        color: #C94515;
+        font-size: 0.8rem;
+
+    }
+
+    &__showError img {
+        width: 1rem;
+        margin-right: 0.5rem;
+    }
+
+    &__hideError {
+        display: none;
+    }
+}
+
+input {
+    width: 100%;
+    margin: 0.25rem 0;
+    padding: 0.5rem 0;
+    border: 1px solid lightgrey;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+[type="text"] {
+    padding-left: 0.75rem;
+}

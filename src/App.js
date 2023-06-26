@@ -3,6 +3,7 @@ import { useState } from "react";
 import Home from "./pages/Home/Home";
 import Programs from './pages/Programs/Programs';
 import ProgramDetails from "./pages/ProgramDetails/ProgramDetails";
+import AddPrograms from "./pages/AddPrograms/AddPrograms";
 import EditPrograms from './pages/EditPrograms/EditPrograms';
 import ExerciseDetails from "./pages/ExerciseDetails/ExerciseDetails";
 import EditExercise from "./pages/EditExercise/EditExercise";
