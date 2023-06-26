@@ -21,7 +21,8 @@ function App() {
     <Route path='/programs/:id' element={<ProgramDetails modalState={isOpen} setModalState={setIsOpen}/>}/>
     <Route path='/programs/edit/:id' element={<EditPrograms />} />
     <Route path='/exercises/:id' element={<ExerciseDetails />}/>
-    <Route path='/exercises/:id' element={<EditExercise />}/>
+    <Route path='/exercises/edit/:id' element={<EditExercise />}/>
+    <Route path='/exercises/add' element={<AddExercise/>}/>
     </Routes>
     </BrowserRouter>   
   

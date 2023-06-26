@@ -1,5 +1,6 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import validator from 'validator';
 import axios from 'axios';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -10,7 +11,7 @@ const EditPrograms = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const [programName, setprogramName] = useState('');
+    const [programName, setProgramName] = useState('');
     const [type, setType] = useState('');
     const [image, setImage] = useState('');
     const [likes, setLikes] = useState('');
@@ -27,7 +28,7 @@ const EditPrograms = () => {
 
     const handleNameChange = (event) => {
         event.preventDefault();
-        setprogramName(event.target.value);
+        setProgramName(event.target.value);
     }
 
     const handleTypeChange = (event) => {
@@ -51,38 +52,60 @@ const EditPrograms = () => {
             comments: comments
         }
 
-        axios.
-            put(`http://localhost:8080/workouts/${id}`, data)
-                .then(response => {
-                    navigate('/programs');
-                })
-                .catch(err => {
-                    console.log(err);
-                })
+        
+        const validate = () => {
+            let counter = 0;
 
-        if (clearFields === true) {
-            event.target.reset();
-            setprogramName(false);
-            setType(false);
-            setImage(false);
+            if (validator.isEmpty(data.name)){
+                setProgramNameIsError(true);
+                counter++;
+            } else {
+                setProgramNameIsError(false);
+            }
+
+            if (validator.isEmpty(data.type)){
+                setProgramTypeIsError(true);
+                counter++;
+            } else {
+                setProgramTypeIsError(false);
+            }
+
+            return counter;
+        }
+
+        let errors = validate();
+            if(errors === 0 && clearFields === false){
+                axios.
+                    put(`http://localhost:8080/workouts/${id}`, data)
+                        .then((response) => {
+                            navigate('/programs');
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
+                }
+
+            if (clearFields === true) {
+            // event.target.reset();
+            setProgramName("");
+            setType("");
+            setImage();
+            setClearFields(false);
         }
     }
     useEffect(() => {
-        const fetchProgramData = async () => {
-            try {
-                const program = await axios.get(`http://localhost:8080/workouts/${id}`);
-                setprogramName(program.data.name);
-                setType(program.data.type);
-                setImage(program.data.image);
-                setLikes(program.data.likes);
-                setComments(program.data.comments);
-            }
-            catch (err) {
+        axios
+            .get(`http://localhost:8080/workouts/${id}`)
+            .then((response) => {
+                setProgramName(response.data.name);
+                setType(response.data.type);
+                setImage(response.data.image);
+                setLikes(response.data.likes);
+                setComments(response.data.comments);
+            })
+            .catch((err) => {
                 console.error(err);
-            }
-
-        }
-        fetchProgramData();
+            })
     }, [])
 
         return (
@@ -104,12 +127,12 @@ const EditPrograms = () => {
                             <div className="form__inputs">
                                 <label className="form__label">
                                     Program Name
-                                    <input onChange={handleNameChange} type="text" id="programName" name="programName" placeholder="programName" value={programName} />
+                                    <input onChange={handleNameChange} type="text" id="inputs__programName" name="programName" placeholder="Program Name" value={programName} />
                                 </label>
                                 <p className={programNameIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
                                 <label className="form__label">
                                     Program Type
-                                    <input onChange={handleTypeChange} type="text" id="inputs__programType" name="programType" placeholder="Street Type" value={type} />
+                                    <input onChange={handleTypeChange} type="text" id="inputs__programType" name="programType" placeholder="Program Type" value={type} />
                                 </label>
                                 <p className={programTypeIsError ? "form__showError" : "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon" />This field is required</p>
                             </div>
