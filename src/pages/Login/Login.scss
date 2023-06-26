@@ -1,0 +1,75 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.login{
+    background-image: url('../../assets/images/login-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (min-width: 768px) {
+        height:65vh;
+    }
+    @media screen and (min-width: 1280px) {
+        height:70vh;
+    } 
+    &__form-container{
+        background: white;
+        margin: 2rem 1rem;
+        border-radius: 0.5rem;
+        height: 22rem;
+        padding: 2rem;
+        @include tablet{
+            margin: 2rem auto;
+            width: 44rem;
+        }
+    }
+    &__form{
+        padding: 1rem 0;
+    }
+    &__heading{
+        display:flex;
+        justify-content: center;
+        width:fit-content;
+        margin: 0 auto;
+        background-color: white;
+        align-items: center;
+    }
+    &__heading-text{
+        padding-left: 1rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    &__item{
+        margin: 1rem auto;
+        width: 85%;
+    }
+    &__submit{
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 1rem 2rem;
+        font-weight: 600;
+        width: fit-content;
+        display:flex;
+        margin: 0 auto;
+    }
+    &__signup{
+        display: flex;
+        justify-content: center;
+    }
+    &__signup-text{
+        padding-right: 0.25rem;
+    }
+}
+
+[type="text"] {
+    padding-left: 0.75rem;
+}
+[type="password"] {
+    padding-left: 0.75rem;
+}
