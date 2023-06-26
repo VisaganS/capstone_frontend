@@ -39,7 +39,6 @@
         align-items: center;
         margin-top: 1rem;
         padding: 1rem 0;
-        background-color: black;
         border-radius: 8px;
         text-decoration: none;
         @include tablet{
@@ -111,6 +110,14 @@
         margin-left: 1rem;
         margin-bottom: 0;
         text-decoration: none;
-        color:white;
+        color:black;
+        &:hover{
+            color:orange;
+        }
+    }
+    &__icon{
+        &:hover{
+            fill:orange;
+        }
     }
 }
