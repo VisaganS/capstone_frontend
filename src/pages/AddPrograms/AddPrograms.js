@@ -14,8 +14,6 @@ const AddPrograms = () => {
     const [programName, setProgramName] = useState('');
     const [type, setType] = useState('');
     const [image, setImage] = useState('');
-    const [likes, setLikes] = useState('');
-    const [comments, setComments] = useState('');
 
     const [programNameIsError, setProgramNameIsError] = useState(false);
     const [programTypeIsError, setProgramTypeIsError] = useState(false);
@@ -36,7 +34,7 @@ const AddPrograms = () => {
     }
 
     const handleImageChange = (event) => {
-        setImage(event.target.value);
+        setImage(event.target.files[0]);
     }
 
 
@@ -48,8 +46,8 @@ const AddPrograms = () => {
             name: programName,
             type: type,
             image: image,
-            likes: likes,
-            comments: comments
+            likes: 0,
+            comments: 0
         }
 
         
@@ -73,10 +71,21 @@ const AddPrograms = () => {
             return counter;
         }
 
+        const formData = new FormData();
+        formData.append('name', programName);
+        formData.append('type', type);
+        formData.append('image', image);
+        formData.append('likes', 0);
+        formData.append('comments', 0);
+
         let errors = validate();
             if(errors === 0 && clearFields === false){
                 axios.
-                    post(`http://localhost:8080/workouts`, data)
+                    post(`http://localhost:8080/workouts`, formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    })
                         .then((response) => {
                             navigate('/programs');
                         })
@@ -88,7 +97,6 @@ const AddPrograms = () => {
             if (clearFields === true) {
             setProgramName("");
             setType("");
-            setImage();
             setClearFields(false);
         }
     }
@@ -98,13 +106,13 @@ const AddPrograms = () => {
         <div className="addPrograms"> 
             <div className="addPrograms__heading">
                 <Link to={`/programs`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="addPrograms__return" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" className="addPrograms__return" viewBox="0 0 16 16">
+                        <path fillRule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path>
                     </svg>
                 </Link>
                 <h1 className="addPrograms__title">Add Program</h1>
             </div>
-            <form className="addPrograms__form" onSubmit={handleSubmit}>
+            <form className="addPrograms__form" onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="addPrograms-form__details-container">
                     <div className="addPrograms-form__details">
                         <h2 className="addPrograms-form__heading">Program Details</h2>
@@ -119,7 +127,10 @@ const AddPrograms = () => {
                                 <input onChange={handleTypeChange} type="text" id="inputs__programType" name="programType" placeholder="Program Type" value={type} />
                             </label>
                             <p className={programTypeIsError ? "addPrograms-form__showError" : "addPrograms-form__hideError"}><img src={errorIcon} className="addPrograms-form__errorImage" alt="error-icon" />This field is required</p>
-                            {/* <input type="file" className="addPrograms-form__upload" name="file"></input> */}
+                            <label className="addPrograms-form__label">
+                                Upload Image
+                                <input type="file" className="addPrograms-form__imageUpload" name="file" onChange={handleImageChange}></input>
+                            </label>
                         </div>
                     </div>
                 </div>

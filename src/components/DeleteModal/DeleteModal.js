@@ -4,7 +4,6 @@ import "./DeleteModal.scss";
 
 const DeleteModal = ({ bin, id, itemToDelete, modalState, setModalState }) => {
     const [isDeleted, setIsDeleted] = useState(null);
-
     const closeHandler = () => {
         setModalState(false);
     };
@@ -18,6 +17,7 @@ const DeleteModal = ({ bin, id, itemToDelete, modalState, setModalState }) => {
                 setTimeout(() => {
                 setModalState(false);
                 setIsDeleted(null);
+                window.location.reload(); 
                 }, 1000);
             } catch (error) {
                 console.log("ERROR", error);
