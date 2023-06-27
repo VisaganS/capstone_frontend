@@ -1,0 +1,16 @@
+.loginRequired{
+    background: black;
+    margin: 1rem;
+    padding: 2rem;
+    display:flex;
+    flex-direction: column;
+    border-radius: 1.5625rem;
+    border: 0.125rem solid gray;
+    &__image{
+        margin: 0 auto;
+    }
+    &__text{
+        text-align: center;
+        color: gray;
+    }
+}

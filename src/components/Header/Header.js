@@ -7,11 +7,7 @@ import "./Header.scss";
 const Header = () => {
     const [isLogin, setLogin] = useState(sessionStorage.token || null);
     const [userData, setUserData] = useState({});
-    const [activeLink, setActiveLink] = useState('Programs');
-
-    const handleNavLinkClick = (link) => {
-        setActiveLink(link);
-    };
+    const [activeLink, setActiveLink] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:8080/user/profile', {
@@ -41,7 +37,7 @@ const Header = () => {
                     <NavDropdown.Item>
                     <div className="navbar__item">
                         <NavLink to="/"
-                            onClick={() => handleNavLinkClick('Programs')}
+                            onClick={() => setActiveLink('Programs')}
                             className={activeLink === 'Programs' ? 'navbar__active-link' : 'navbar__navlink'}
                             >
                             Programs
@@ -51,8 +47,8 @@ const Header = () => {
                     <NavDropdown.Item>
                     <div className="navbar__item">
                         <NavLink to="/userworkouts"
-                            onClick={() => handleNavLinkClick('Your Workouts')}
-                            className={activeLink === 'Your Workouts' ? 'active-link' : 'navbar__navlink'}
+                            onClick={() => setActiveLink('Your Workouts')}
+                            className={activeLink === 'Your Workouts' ? 'navbar__active-link' : 'navbar__navlink'}
                             >
                             Your Workouts
                         </NavLink>
@@ -61,8 +57,8 @@ const Header = () => {
                     <NavDropdown.Item>
                     <div className="navbar__item">
                         <NavLink to="/login"
-                            onClick={() => handleNavLinkClick('login')}
-                            className={activeLink === 'login' ? 'active-link' : 'navbar__navlink'}
+                            onClick={() => setActiveLink('Login')}
+                            className={activeLink === 'login' ? 'navbar__active-link' : 'navbar__navlink'}
                         >
                         {isLogin ? userData.first_name : 'Login'}
                         </NavLink>
@@ -72,7 +68,7 @@ const Header = () => {
                 <ul className="navbar__list">
                     <ul className="navbar__item">
                         <NavLink to="/programs"
-                            onClick={() => handleNavLinkClick('Programs')}
+                            onClick={() => setActiveLink('Programs')}
                             className={activeLink === 'Programs' ? 'navbar__active-link' : 'navbar__navlink'}
                             >
                             Programs
@@ -80,16 +76,16 @@ const Header = () => {
                     </ul>
                     <li className="navbar__item">
                         <NavLink to="/userworkouts"
-                            onClick={() => handleNavLinkClick('Your Workouts')}
-                            className={activeLink === 'Your Workouts' ? 'active-link' : 'navbar__navlink'}
+                            onClick={() => setActiveLink('Your Workouts')}
+                            className={activeLink === 'Your Workouts' ? 'navbar__active-link' : 'navbar__navlink'}
                             >
                             Your Workouts
                         </NavLink>
                     </li>
                     <li className="navbar__item">
                         <NavLink to={isLogin ? "/profile": "/login"}
-                            onClick={() => handleNavLinkClick('login')}
-                            className={activeLink === 'login' ? 'active-link' : 'navbar__navlink'}
+                            onClick={() => setActiveLink('login')}
+                            className={activeLink === 'login' ? 'navbar__active-link' : 'navbar__navlink'}
                         >
                         {isLogin ? userData.first_name : 'Login'}
                         </NavLink>
