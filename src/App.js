@@ -8,8 +8,10 @@ import EditPrograms from './pages/EditPrograms/EditPrograms';
 import ExerciseDetails from "./pages/ExerciseDetails/ExerciseDetails";
 import EditExercise from "./pages/EditExercise/EditExercise";
 import AddExercise from "./pages/AddExercise/AddExercise";
+import UserWorkouts from "./pages/UserWorkouts/UserWorkouts";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import Profile from "./pages/Profile/Profile";
 import Error from "./pages/Error/Error";
 import './App.scss';
 
@@ -30,7 +32,8 @@ function App() {
     <Route path='/exercises/edit/:id' element={<EditExercise />}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/signup' element={<Signup/>}/>
-    <Route path='/userworkouts' element={<Error/>}/>
+    <Route path='/profile' element={<Profile/>}/>
+    <Route path='/userworkouts' element={<UserWorkouts/>}/>
     </Routes>
     </BrowserRouter>   
   

@@ -1,15 +1,29 @@
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavDropdown } from 'react-bootstrap';
+import axios from 'axios';
 import "./Header.scss";
 
 const Header = () => {
-
+    const [isLogin, setLogin] = useState(sessionStorage.token || null);
+    const [userData, setUserData] = useState({});
     const [activeLink, setActiveLink] = useState('Programs');
 
     const handleNavLinkClick = (link) => {
         setActiveLink(link);
     };
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/user/profile', {
+            headers: {Authorization: `Bearer ${isLogin}`}
+        })
+        .then((res) => {
+            setUserData(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, [])
 
     return (
         <header className="header">
@@ -50,14 +64,14 @@ const Header = () => {
                             onClick={() => handleNavLinkClick('login')}
                             className={activeLink === 'login' ? 'active-link' : 'navbar__navlink'}
                         >
-                        Login
+                        {isLogin ? userData.first_name : 'Login'}
                         </NavLink>
                     </div>
                     </NavDropdown.Item>
                 </NavDropdown>
                 <ul className="navbar__list">
                     <ul className="navbar__item">
-                        <NavLink to="/"
+                        <NavLink to="/programs"
                             onClick={() => handleNavLinkClick('Programs')}
                             className={activeLink === 'Programs' ? 'navbar__active-link' : 'navbar__navlink'}
                             >
@@ -73,11 +87,11 @@ const Header = () => {
                         </NavLink>
                     </li>
                     <li className="navbar__item">
-                        <NavLink to="/login"
+                        <NavLink to={isLogin ? "/profile": "/login"}
                             onClick={() => handleNavLinkClick('login')}
                             className={activeLink === 'login' ? 'active-link' : 'navbar__navlink'}
                         >
-                        Login
+                        {isLogin ? userData.first_name : 'Login'}
                         </NavLink>
                     </li>
                 </ul>
