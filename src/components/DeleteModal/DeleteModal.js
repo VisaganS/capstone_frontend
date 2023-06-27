@@ -13,7 +13,6 @@ const DeleteModal = ({ bin, id, itemToDelete, modalState, setModalState }) => {
             try {
                 await axios.delete(`http://localhost:8080/${bin}/${id}`);
                 setIsDeleted(`**Successfully deleted ${itemToDelete}**`);
-
                 setTimeout(() => {
                 setModalState(false);
                 setIsDeleted(null);

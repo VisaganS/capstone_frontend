@@ -37,8 +37,6 @@ const AddPrograms = () => {
         setImage(event.target.files[0]);
     }
 
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -50,7 +48,6 @@ const AddPrograms = () => {
             comments: 0
         }
 
-        
         const validate = () => {
             let counter = 0;
 

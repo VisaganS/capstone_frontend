@@ -13,7 +13,7 @@ const EditPrograms = () => {
 
     const [programName, setProgramName] = useState('');
     const [type, setType] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
     const [likes, setLikes] = useState('');
     const [comments, setComments] = useState('');
 
@@ -36,10 +36,8 @@ const EditPrograms = () => {
     }
 
     const handleImageChange = (event) => {
-        setImage(event.target.value);
+        setImage(event.target.files[0]);
     }
-
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -52,7 +50,6 @@ const EditPrograms = () => {
             comments: comments
         }
 
-        
         const validate = () => {
             let counter = 0;
 
@@ -73,10 +70,20 @@ const EditPrograms = () => {
             return counter;
         }
 
+        const formData = new FormData();
+        formData.append('name', programName);
+        formData.append('type', type);
+        formData.append('image', image);
+        formData.append('likes', likes);
+        formData.append('comments', comments);
         let errors = validate();
             if(errors === 0 && clearFields === false){
                 axios.
-                    put(`http://localhost:8080/workouts/${id}`, data)
+                    put(`http://localhost:8080/workouts/${id}`, formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    })
                         .then((response) => {
                             navigate('/programs');
                         })
@@ -98,7 +105,7 @@ const EditPrograms = () => {
             .then((response) => {
                 setProgramName(response.data.name);
                 setType(response.data.type);
-                setImage(response.data.image);
+                setImage('');
                 setLikes(response.data.likes);
                 setComments(response.data.comments);
             })
@@ -119,7 +126,7 @@ const EditPrograms = () => {
                         </Link>
                     <h1 className="editPrograms__title">Edit Program</h1>
                 </div>
-                <form className="editPrograms__form" onSubmit={handleSubmit}>
+                <form className="editPrograms__form" onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className="editPrograms-form__details-container">
                         <div className="editPrograms-form__details">
                             <h2 className="editPrograms-form__heading">Program Details</h2>
@@ -134,6 +141,10 @@ const EditPrograms = () => {
                                     <input onChange={handleTypeChange} type="text" id="inputs__programType" name="programType" placeholder="Program Type" value={type} />
                                 </label>
                                 <p className={programTypeIsError ? "editPrograms-form__showError" : "editPrograms-form__hideError"}><img src={errorIcon} className="editPrograms-form__errorImage" alt="error-icon" />This field is required</p>
+                                <label className="addPrograms-form__label">
+                                    Upload Image
+                                    <input type="file" className="addPrograms-form__imageUpload" name="file" onChange={handleImageChange}></input>
+                                </label>
                             </div>
                         </div>
                     </div>
