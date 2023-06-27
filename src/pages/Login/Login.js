@@ -10,11 +10,11 @@ import errorIcon from '../../assets/images/icons/error-24px.svg';
 import './Login.scss';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
-    const [usernameIsError, setUsernameIsError] = useState('');
-    const [passwordIsError, setPasswordIsError] = useState('');
+    const [emailIsError, setEmailIsError] = useState(false);
+    const [passwordIsError, setPasswordIsError] = useState(false);
     return (<>
         <Header/>
         <div className="login">
@@ -27,11 +27,11 @@ const Login = () => {
                 </div>
                 <form className="login__form">
                     <div className="login__item">
-                        <input type="text" id="inputs__username" name="username" placeholder="Enter a username" />
-                        <p className={usernameIsError ? "form__showError": "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon"/>Enter a valid username</p>
+                        <input type="email" id="inputs__email" name="email" placeholder="Email" />
+                        <p className={emailIsError ? "form__showError": "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon"/>Enter a valid username</p>
                     </div>
                     <div className="login__item">
-                        <input type="password" id="inputs__password" name="password" placeholder="Enter a password" />
+                        <input type="password" id="inputs__password" name="password" placeholder="Password" />
                         <p className={passwordIsError ? "form__showError": "form__hideError"}><img src={errorIcon} className="form__errorImage" alt="error-icon"/>Enter a valid password</p>
                     </div>
                     <button className="login__submit">LOGIN</button>
