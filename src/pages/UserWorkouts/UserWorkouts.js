@@ -3,23 +3,32 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import Error from '../Error/Error';
 import './UserWorkouts.scss';
 
-const UserWorkouts = () => {
+const UserWorkouts = ({ modalState, setModalState }) => {
     const [isLogin, setLogin] = useState(sessionStorage.token || null);
 
-    useEffect(() => {
-        axios.get('http://localhost:8080/user/profile', {
-            headers: {Authorization: `Bearer ${isLogin}`}
-        })
-        .then((res) => {
-            setLogin(res.data);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }, [])
+    const [itemToDelete, setItemToDelete] = useState(null);
+    const [modalId, setModalId] = useState(null);
+    const [workoutList, setWorkoutList] = useState([]);
 
+    const modalHandler = (itemToDelete, id) => {
+        setModalId(id);
+        setItemToDelete(itemToDelete);
+        setModalState(true);
+      };
+
+    useEffect(()=>{
+        axios
+        .get("http://localhost:8080/likes")
+        .then((res) => {
+            console.log(res.data);
+        setWorkoutList(res.data);
+        })
+        .catch((err) => {});
+    },[])
+    
     const loginRequired = () => {
         return(<>
             <Header/>
@@ -36,9 +45,11 @@ const UserWorkouts = () => {
     }
 
     if (isLogin == null) return loginRequired();
-
-    return (<>
-    </>);
+    return (
+        <>
+        <Error/>
+        </>
+    )
 }
 
 export default UserWorkouts;
