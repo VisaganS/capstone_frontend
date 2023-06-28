@@ -56,7 +56,7 @@ const Header = () => {
                     </NavDropdown.Item>
                     <NavDropdown.Item>
                     <div className="navbar__item">
-                        <NavLink to="/login"
+                        <NavLink to={isLogin ? "/profile": "/login"}
                             onClick={() => setActiveLink('Login')}
                             className={activeLink === 'login' ? 'navbar__active-link' : 'navbar__navlink'}
                         >

@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import validator from "validator";
 import axios from "axios";
 import Header from "../../components/Header/Header";
@@ -16,7 +16,6 @@ const AddExercise = () => {
     const [equipment, setEquipment] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [instructions, setInstructions] = useState("");
-    const [workoutId, setWorkoutId] = useState([]);
 
     const [nameIsError, setNameIsError] = useState(false);
     const [muscleIsError, setMuscleIsError] = useState(false);

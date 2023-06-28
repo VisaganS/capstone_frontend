@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import validator from 'validator';
 import axios from 'axios';
 import Header from "../../components/Header/Header";
@@ -8,7 +8,6 @@ import errorIcon from '../../assets/images/icons/error-24px.svg';
 import './AddPrograms.scss';
 
 const AddPrograms = () => {
-    const { id } = useParams();
     const navigate = useNavigate();
 
     const [programName, setProgramName] = useState('');
@@ -77,18 +76,17 @@ const AddPrograms = () => {
 
         let errors = validate();
             if(errors === 0 && clearFields === false){
-                axios.
-                    post(`http://localhost:8080/workouts`, formData, {
-                        headers: {
+                axios.post(`http://localhost:8080/workouts`, formData, {
+                    headers: {
                             'Content-Type': 'multipart/form-data'
                         }
                     })
-                        .then((response) => {
-                            navigate('/programs');
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        })
+                    .then((response) => {
+                        navigate('/programs');
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
                 }
 
             if (clearFields === true) {
