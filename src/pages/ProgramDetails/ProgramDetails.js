@@ -25,7 +25,7 @@ const ProgramDetails = ({ modalState, setModalState }) => {
     };
 
     const handleReturn = () => {
-        navigate(-1);
+        navigate('/programs');
     }
     const handleLike = () => {
         if(isLiked === false){

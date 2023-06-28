@@ -40,7 +40,7 @@ const UserWorkouts = ({ modalState, setModalState }) => {
     
     const loginRequired = () => {
         return(<>
-            <Header/>
+            <Header currentPage="Your Workouts"/>
             <div className="loginRequired">
             <div className="loginRequired__image">
                 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="gray" className="loginRequired__icon" viewBox="0 0 16 16">

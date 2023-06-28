@@ -36,7 +36,7 @@ const Programs = ( {modalState, setModalState }) => {
         modalState={modalState}
         setModalState={setModalState}
       />
-    <Header/>
+    <Header currentPage="Programs"/>
     <div className="programs">
         <div className="programs__heading">Programs</div>
         <div className="programs__list">
