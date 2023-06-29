@@ -28,7 +28,7 @@ const Profile = () => {
     }, [])
 
     return ( <>
-        <Header/>
+        <Header currentPage="Login"/>
         <div className="profile">
             <div className="profile__container">
                 <div className="profile__heading">

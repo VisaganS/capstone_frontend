@@ -62,7 +62,7 @@ const UserWorkouts = ({ modalState, setModalState }) => {
         modalState={modalState}
         setModalState={setModalState}
         />
-        <Header/>
+        <Header currentPage="Your Workouts"/>
         <div className="likedPrograms">
             <div className="likedPrograms__heading">Your Workouts</div>
             <div className="likedPrograms__list">
