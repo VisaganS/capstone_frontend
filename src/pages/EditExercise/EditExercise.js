@@ -148,8 +148,9 @@ const EditExercise = () => {
             })
     },[]);
 
-    return (<>
-        <Header/>
+    return (
+        <>
+            <Header/>
             <div className="editExercise">
                 <div className="editExercise__heading">
                     <Link to={`/programs/${workoutId}`}>

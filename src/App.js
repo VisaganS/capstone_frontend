@@ -33,7 +33,7 @@ function App() {
     <Route path='/login' element={<Login/>}/>
     <Route path='/signup' element={<Signup/>}/>
     <Route path='/profile' element={<Profile/>}/>
-    <Route path='/userworkouts' element={<UserWorkouts/>}/>
+    <Route path='/userworkouts' element={<UserWorkouts modalState={isOpen} setModalState={setIsOpen}/>}/>
     </Routes>
     </BrowserRouter>   
   
