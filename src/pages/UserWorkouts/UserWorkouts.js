@@ -69,7 +69,7 @@ const UserWorkouts = ({ modalState, setModalState }) => {
                 {workoutList.map((workout) =>{
                     return (
                         <div className="likedPrograms__workout" key={workout.id} style={{ backgroundImage: `url(${workout.image})` }}>
-                            <Link to={`/programs/${workout.id}`}><div className="likedPrograms-workout__overlay"></div></Link>
+                            <Link to={`/likedprograms/${workout.id}`}><div className="likedPrograms-workout__overlay"></div></Link>
                             <div className="likedPrograms-workout__content">
                                 <Link to={`/programs/${workout.id}`} className="likedPrograms__link">
                                     <p className="likedPrograms-workout__type">{workout.type}</p>

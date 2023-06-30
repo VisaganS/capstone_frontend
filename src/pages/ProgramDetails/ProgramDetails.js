@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import './ProgramDetails.scss';
 
-const ProgramDetails = ({ modalState, setModalState }) => {
+const ProgramDetails = ({ returnPage, modalState, setModalState }) => {
     let { id } = useParams();
     let navigate = useNavigate();
     const [modalId, setModalId] = useState(null);
@@ -25,7 +25,7 @@ const ProgramDetails = ({ modalState, setModalState }) => {
     };
 
     const handleReturn = () => {
-        navigate('/programs');
+      navigate(`/${returnPage}`);
     }
     const handleLike = () => {
         if(isLiked === false){
@@ -75,7 +75,7 @@ const ProgramDetails = ({ modalState, setModalState }) => {
             </Link>
         )
     }
-
+    
     useEffect(() => {
         const fetchData = async () => {
           try {

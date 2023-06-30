@@ -24,7 +24,7 @@ function App() {
     <Route path='/' element={<Home />} />
     <Route path='/error' element={<Error />} />
     <Route path='/programs' element={<Programs modalState={isOpen} setModalState={setIsOpen}/>}/>
-    <Route path='/programs/:id' element={<ProgramDetails modalState={isOpen} setModalState={setIsOpen}/>}/>
+    <Route path='/programs/:id' element={<ProgramDetails returnPage="programs" modalState={isOpen} setModalState={setIsOpen}/>}/>
     <Route path='/programs/add' element={<AddPrograms />} />
     <Route path='/programs/edit/:id' element={<EditPrograms />} />
     <Route path='/programs/:id/addExercise' element={<AddExercise/>}/>
@@ -34,6 +34,7 @@ function App() {
     <Route path='/signup' element={<Signup/>}/>
     <Route path='/profile' element={<Profile/>}/>
     <Route path='/userworkouts' element={<UserWorkouts modalState={isOpen} setModalState={setIsOpen}/>}/>
+    <Route path='/likedprograms/:id' element={<ProgramDetails returnPage="userworkouts" modalState={isOpen} setModalState={setIsOpen}/>}/>
     </Routes>
     </BrowserRouter>   
   
