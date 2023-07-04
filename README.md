@@ -19,13 +19,13 @@ Install server dependencies:
 
 # Links
 
-<strong>Project Links</strong>
+<strong> Project Links </strong>
 
 Front End: https://github.com/VisaganS/capstone_frontend
 
 Back End: https://github.com/VisaganS/capstone_backend
 
-<strong>Connect With Me</strong>
+<strong> Connect With Me </strong>
 
 Github: https://github.com/VisaganS
 LinkedIn: https://www.linkedin.com/in/visagan-shan/
