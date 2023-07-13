@@ -79,7 +79,7 @@ const EditPrograms = () => {
         let errors = validate();
             if(errors === 0 && clearFields === false){
                 axios.
-                    put(`http://localhost:8080/workouts/${id}`, formData, {
+                    put(`https://gym-junkie-backend-visagans.onrender.com/workouts/${id}`, formData, {
                         headers: {
                             'Content-Type': 'multipart/form-data'
                         }
@@ -101,7 +101,7 @@ const EditPrograms = () => {
     }
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/workouts/${id}`)
+            .get(`https://gym-junkie-backend-visagans.onrender.com/workouts/${id}`)
             .then((response) => {
                 setProgramName(response.data.name);
                 setType(response.data.type);

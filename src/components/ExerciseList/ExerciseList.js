@@ -10,7 +10,7 @@ const ExerciseList = ({workoutId, modalState, setModalState, modalHandler}) => {
 
     useEffect(() => {
       axios
-        .get(`http://localhost:8080/workouts/${workoutId}/exercises`)
+        .get(`https://gym-junkie-backend-visagans.onrender.com/workouts/${workoutId}/exercises`)
         .then((res) => {
           setExercises(res.data);
         })

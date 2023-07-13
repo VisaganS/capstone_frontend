@@ -84,7 +84,7 @@ const Signup = () => {
         let errors = validate();
 
         if(errors === 0){
-            axios.post('http://localhost:8080/user/signup', data)
+            axios.post('https://gym-junkie-backend-visagans.onrender.com/user/signup', data)
             .then((response) => {
                 navigate('/login');
             })

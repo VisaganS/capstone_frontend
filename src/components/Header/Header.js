@@ -11,7 +11,7 @@ const Header = ({currentPage}) => {
     console.log(currentPage);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/user/profile', {
+        axios.get('https://gym-junkie-backend-visagans.onrender.com/user/profile', {
             headers: {Authorization: `Bearer ${isLogin}`}
         })
         .then((res) => {

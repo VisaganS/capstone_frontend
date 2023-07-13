@@ -110,7 +110,7 @@ const AddExercise = () => {
 
         if (errors === 0 && clearFields === false){
             axios
-                .post(`http://localhost:8080/exercises`, addExercise)
+                .post(`https://gym-junkie-backend-visagans.onrender.com/exercises`, addExercise)
                 .then((response) => {
                     navigate(`/programs/${id}`);
                 })

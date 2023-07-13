@@ -11,7 +11,7 @@ const ExerciseDetails = () => {
 
     useEffect(() => {
         axios
-          .get(`http://localhost:8080/exercises/${id}`)
+          .get(`https://gym-junkie-backend-visagans.onrender.com/exercises/${id}`)
           .then((res) => {
             setExercise(res.data);
           })

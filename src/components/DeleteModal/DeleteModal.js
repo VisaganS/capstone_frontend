@@ -11,7 +11,7 @@ const DeleteModal = ({ bin, id, itemToDelete, modalState, setModalState }) => {
     const delHandler = () => {
         const deleteRequest = async () => {
             try {
-                await axios.delete(`http://localhost:8080/${bin}/${id}`);
+                await axios.delete(`https://gym-junkie-backend-visagans.onrender.com/${bin}/${id}`);
                 setIsDeleted(`**Successfully deleted ${itemToDelete}**`);
                 setTimeout(() => {
                 setModalState(false);

@@ -76,7 +76,7 @@ const AddPrograms = () => {
 
         let errors = validate();
             if(errors === 0 && clearFields === false){
-                axios.post(`http://localhost:8080/workouts`, formData, {
+                axios.post(`https://gym-junkie-backend-visagans.onrender.com/workouts`, formData, {
                     headers: {
                             'Content-Type': 'multipart/form-data'
                         }

@@ -34,7 +34,7 @@ const ProgramDetails = ({ returnPage, modalState, setModalState }) => {
                 workout_id: id
             }
             axios
-            .post("http://localhost:8080/likes/", data)
+            .post("https://gym-junkie-backend-visagans.onrender.com/likes/", data)
             .then((res) => {
                 setIsLiked(true);
             })
@@ -43,7 +43,7 @@ const ProgramDetails = ({ returnPage, modalState, setModalState }) => {
             })
         } else if(isLiked === true) {
             axios
-            .delete(`http://localhost:8080/likes/${id}/${userId}`)
+            .delete(`https://gym-junkie-backend-visagans.onrender.com/likes/${id}/${userId}`)
             .then((res) => {
                 console.log(res.data);
                 setIsLiked(false);
@@ -79,15 +79,15 @@ const ProgramDetails = ({ returnPage, modalState, setModalState }) => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const workoutResponse = await axios.get(`http://localhost:8080/workouts/${id}`);
+            const workoutResponse = await axios.get(`https://gym-junkie-backend-visagans.onrender.com/workouts/${id}`);
             setWorkout(workoutResponse.data);
       
-            const profileResponse = await axios.get('http://localhost:8080/user/profile', {
+            const profileResponse = await axios.get('https://gym-junkie-backend-visagans.onrender.com/user/profile', {
               headers: { Authorization: `Bearer ${isLogin}` },
             });
             setUserId(profileResponse.data.id);
       
-            const likesResponse = await axios.get(`http://localhost:8080/likes/${id}/${profileResponse.data.id}`);
+            const likesResponse = await axios.get(`https://gym-junkie-backend-visagans.onrender.com/likes/${id}/${profileResponse.data.id}`);
             console.log(likesResponse.data);
             if(likesResponse.data){
                 setIsLiked(true);

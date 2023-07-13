@@ -112,7 +112,7 @@ const EditExercise = () => {
 
         if (errors === 0 && clearFields === false){
             axios
-                .put(`http://localhost:8080/exercises/${id}`, updatedExercise)
+                .put(`https://gym-junkie-backend-visagans.onrender.com/exercises/${id}`, updatedExercise)
                 .then((response) => {
                     navigate(`/exercises/${id}`);
                 })
@@ -137,7 +137,7 @@ const EditExercise = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/exercises/${id}`)
+            .get(`https://gym-junkie-backend-visagans.onrender.com/exercises/${id}`)
             .then((response) => {
                 setExerciseName(response.data.name);
                 setMuscle(response.data.muscle);

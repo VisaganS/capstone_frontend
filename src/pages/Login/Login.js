@@ -56,7 +56,7 @@ const Login = () => {
         let errors = validate();
 
         if(errors === 0){
-            axios.post('http://localhost:8080/user/login', data)
+            axios.post('https://gym-junkie-backend-visagans.onrender.com/user/login', data)
             .then((response) => {
                 sessionStorage.setItem("token", response.data);
                 setLoginIsError(false);

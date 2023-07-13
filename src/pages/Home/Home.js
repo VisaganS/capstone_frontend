@@ -12,7 +12,7 @@ const Home = () => {
     const [workout3, setWorkout3] = useState({});
     useEffect(() => {
         axios
-        .get("http://localhost:8080/workouts")
+        .get("https://gym-junkie-backend-visagans.onrender.com/workouts")
         .then((res) => {
         // console.log(res.data);
         setWorkout1(res.data[0]);

@@ -21,7 +21,7 @@ const Programs = ( {modalState, setModalState }) => {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:8080/workouts")
+        .get("https://gym-junkie-backend-visagans.onrender.com/workouts")
         .then((res) => {
         setWorkoutList(res.data);
         })

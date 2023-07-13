@@ -23,12 +23,12 @@ const UserWorkouts = ({ modalState, setModalState }) => {
       useEffect(() => {
         const fetchData = async () => {
           try {
-            const profileResponse = await axios.get('http://localhost:8080/user/profile', {
+            const profileResponse = await axios.get('https://gym-junkie-backend-visagans.onrender.com/user/profile', {
               headers: { Authorization: `Bearer ${isLogin}` },
             });
             setUserId(profileResponse.data.id);
       
-            const likedWorkoutsResponse = await axios.get(`http://localhost:8080/likes/${profileResponse.data.id}`);
+            const likedWorkoutsResponse = await axios.get(`https://gym-junkie-backend-visagans.onrender.com/likes/${profileResponse.data.id}`);
             setWorkoutList(likedWorkoutsResponse.data);
            
           } catch (error) {
